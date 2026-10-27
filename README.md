@@ -4,6 +4,43 @@ Find jobs on LinkedIn, tailor a one-page resume and a short cover letter for
 each, and apply through LinkedIn Easy Apply or the company's own ATS, driven
 by [Claude Code](https://claude.com/claude-code) and `playwright-cli`.
 
+## Quick start: paste this into Claude Code
+
+Open Claude Code in this folder, fill in the brackets, and send:
+
+```
+Set up this repo for me and then start applying to jobs. Follow README.md and the skills in .claude/skills/.
+
+1. Setup
+- Install everything from the README: the search venv, patchright chromium, the npm packages for resume-gen, and check that playwright-cli works.
+- Create profile.yaml and cv.md from the examples using my CV, attached/pasted below. Ask me about anything the examples need that my CV doesn't cover (salary, notice period, work authorization per country, commutable cities, which questions to always ask me about). Don't guess any of it.
+- Replace templates/base-spec.json with my real default resume content, render a test resume, and show me the PDF before going on.
+
+2. Search
+- Target roles: [e.g. Junior Backend Engineer, Python Developer, Working Student Software]
+- Locations, in priority order: [e.g. working student in Berlin, then full-time in Germany, then remote EU]
+- Languages I can work in: [e.g. English, Spanish]
+- Countries where I don't need sponsorship: [e.g. Germany]
+- Max years of experience to consider: [e.g. 3]
+- Time window: [past week / past month]
+Write a search config per priority slice and run them in that order. Start the browser so I can log in to LinkedIn once, then copy the profile to apply_profile.
+
+3. Apply
+- Goal: [N] applications today, working through the priority slices in order, Easy Apply first within each slice.
+- Screen every job before applying (language, years, location, sponsorship) and tell me why you skipped any.
+- Tailor a resume for every job, and a short cover letter wherever the form has a slot for one.
+- auto_submit: [false = stop on the last page so I can review the first few | true = submit yourself]
+- Ask me only for OTP/security codes and answers that aren't in cv.md. Skip captchas.
+- Log everything with scripts/tracker.py. Send me a short progress line every ~5 applications and a summary at the end: submitted, skipped with reasons, and anything waiting on me.
+
+My CV:
+[paste CV text or attach the PDF]
+```
+
+Start with `auto_submit: false` and approve the first 5 to 10 applications
+yourself, then switch it to `true`. On later days a short prompt is enough:
+"Run the searches again and apply to 20 more jobs, same priority as last time."
+
 ```
 search/run_search.py            collects postings into search/output/jobs.jsonl
                                 (guest API, eligibility filters, apply-route detection)
