@@ -1,0 +1,5 @@
+# Defaults for resume-gen. Candidate contact details and resume facts live in
+# profile.yaml at the repo root (see profile.example.yaml); the CV itself is
+# cv.md at the repo root.
+
+cv_md_path: ../../../cv.md

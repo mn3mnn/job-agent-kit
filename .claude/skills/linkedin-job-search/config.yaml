@@ -1,0 +1,7 @@
+# Jobs scoring below this are skipped.
+min_score_to_apply: 3.5
+# true: Claude clicks the final Submit itself. false: it fills everything and
+# stops on the final page for you to review and submit.
+auto_submit: false
+# Soft cap on LinkedIn Easy Apply submissions per day (account-safety pacing).
+easy_apply_daily_cap: 40

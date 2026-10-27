@@ -1,0 +1,11 @@
+# Minimal set for the search-only path, traced against
+# Auto_Jobs_Applier_AIHawk's actual imports: patchright/PyYAML/loguru/click are
+# used by the search/login/pagination code; everything else in that repo's
+# requirements.txt (langchain*, openai, reportlab, pdfminer.six, Levenshtein,
+# httpx, python-dotenv, inputimeout, regex, jsonschema, the lib_resume_builder
+# git dependency) belongs only to its apply/LLM/outreach path, which this fork
+# does not include.
+patchright==1.56.0
+PyYAML~=6.0.2
+loguru==0.7.2
+click

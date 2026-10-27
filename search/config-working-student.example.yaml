@@ -1,0 +1,78 @@
+# Example: working student roles across Germany, past month.
+# Search-only config. Everything here is consumed by the search path alone —
+# no LLM/resume/apply settings exist in this repo's search step at all (see
+# README for why). Modeled on Auto_Jobs_Applier_AIHawk's config.yaml, trimmed
+# to the keys that repo's own search code actually reads (confirmed by tracing
+# aihawk_job_manager.py) plus the experienceLevel key-name fix noted in
+# src/job_manager.py.
+
+positions:
+  - Working Student Software
+  - Werkstudent Softwareentwicklung
+  - Working Student Python
+  - Working Student Backend
+  - Werkstudent Data
+  - Working Student Data Engineering
+  - Working Student Developer
+
+# LinkedIn location strings. A single country name works; so do specific
+# cities. "Europe" is not itself a valid LinkedIn location value, so list the
+# countries you actually want covered.
+locations:
+  - Germany
+
+
+#distance: 25
+
+experienceLevel:
+  internship: false
+  entry: false
+  associate: false
+  mid-senior level: false
+  director: false
+  executive: false
+
+jobTypes:
+  full-time: false
+  contract: false
+  part-time: false
+  temporary: false
+  internship: false
+  other: false
+  volunteer: false
+
+date:
+  all time: false
+  month: true
+  week: false
+  24 hours: false
+
+company_blacklist: []
+
+title_blacklist:
+  - senior
+  - sr
+  - lead
+  - principal
+  - staff
+  - director
+  - manager
+  - frontend
+
+location_blacklist: []
+
+# Stop each position x location search after this many result pages (25 jobs
+# each, at least 5 minutes per page). Remove for no cap.
+max_pages: 4
+
+# Eligibility filters (src/filters.py), applied to each scraped description.
+# Jobs needing any other language, or located outside the authorized
+# countries without visa sponsorship, are recorded as skipped.
+allowed_languages:
+  - English
+# Skip postings whose minimum required experience exceeds this.
+max_years_experience: 3
+work_authorized_countries:   # countries you can already work in (no sponsorship needed)
+  - Germany
+
+output_path: output/jobs.jsonl

@@ -1,0 +1,10 @@
+{
+  "name": "resume-gen-skill",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Tailored resume/cover-letter PDF generation, reused from career-ops's compact ATS template.",
+  "dependencies": {
+    "playwright": "1.62.1"
+  }
+}

@@ -1,0 +1,27 @@
+# personal data: never commit
+cv.md
+profile.yaml
+data/
+*.pdf
+secrets.yaml
+.env
+portal_password*
+
+# search
+search/chrome_profile/
+search/output/
+search/.venv/
+**/__pycache__/
+*.pyc
+
+# resume-gen
+.claude/skills/resume-gen/node_modules/
+.claude/skills/resume-gen/output/
+.claude/skills/resume-gen/package-lock.json
+
+# browser automation scratch
+.playwright-cli/
+
+# OS/editor noise
+.DS_Store
+*.swp

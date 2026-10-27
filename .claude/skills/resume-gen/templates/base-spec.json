@@ -1,0 +1,32 @@
+{
+ "summary": "Backend engineer with ~2 years of Python and Go experience building REST APIs and data pipelines on PostgreSQL and AWS. Replace this with a 3-5 sentence summary built only from cv.md.",
+ "jobs": {
+  "Acme Corp": [
+   "Built X that did Y, measured as Z (copy real bullets from cv.md)",
+   "Second bullet"
+  ],
+  "Initech": [
+   "Intern bullet from cv.md"
+  ]
+ },
+ "project": "One or two sentences about the project, from cv.md.",
+ "project_tech": "Python, FastAPI, PostgreSQL",
+ "skills": [
+  [
+   "Programming",
+   "Python, Go, SQL, FastAPI, Django, REST APIs, Git"
+  ],
+  [
+   "Data",
+   "PostgreSQL, Redis, Kafka"
+  ],
+  [
+   "Cloud & DevOps",
+   "AWS, Docker, Kubernetes, GitHub Actions, Linux"
+  ],
+  [
+   "Quality & Process",
+   "Unit Testing, Code Reviews, Agile/Scrum"
+  ]
+ ]
+}

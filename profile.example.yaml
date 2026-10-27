@@ -1,0 +1,59 @@
+# Copy to profile.yaml (gitignored) and fill in your own details.
+# profile.yaml + cv.md are the only places personal data lives. Everything
+# else in the repo reads from them.
+
+candidate:
+  first_name: "Jane"
+  last_name: "Doe"
+  email: "jane.doe@example.com"
+  phone: "+49 151 00000000"
+  linkedin: "linkedin.com/in/jane-doe"
+  github: "github.com/janedoe"
+  # Shown in the resume header. City + country only; never put a street here.
+  header_location: "Berlin, Germany"
+  # What to type into "City" typeahead fields, and the exact option to pick.
+  city: "Berlin"
+  city_option: "Berlin, Berlin, Germany"
+
+# Resume layout facts. build_resume.py prints these as-is; a tailored spec
+# only changes summary, bullets, project text and skills.
+experience:            # most recent first; keys are what specs refer to
+  "Acme Corp":
+    period: "Jan 2024 - Present"
+    role: "Backend Engineer"
+    location: "Berlin, Germany"
+  "Initech":
+    period: "Jun 2023 - Dec 2023"
+    role: "Software Engineering Intern"
+    location: "Munich, Germany"
+
+project:               # optional; set to null to never show a Projects section
+  title: "Example Project"
+  badge: "Side Project"
+  default_tech: "Python, FastAPI, PostgreSQL"
+
+education:
+  - title: "B.Sc., Computer Science"
+    org: "Example University"
+    period: "Oct 2020 - Sep 2023"
+    note: ""
+
+certifications:
+  - title: "AWS Certified Developer - Associate"
+    org: "Amazon Web Services"
+    year: "2024"
+
+resume_pdf_name: "Jane_Doe_Resume.pdf"
+cover_letter_pdf_name: "Jane_Doe_Cover_Letter.pdf"
+
+# Used by scripts/pipeline/triage.py and rank.py to pre-sort the queue.
+# Regexes are case-insensitive.
+stack:
+  # A job description must mention at least one of these to stay in the queue.
+  good: "python|golang|\\bgo\\b|fastapi|django|postgres"
+  # Titles matching this are auto-skipped as a stack mismatch.
+  bad_title: "java|\\.net|c#|c\\+\\+|frontend|ios|android|salesforce|sap|qa|tester|designer|sales|marketing|recruit|support"
+  # Words that raise the rank when present in a description.
+  cv_keywords: [python, fastapi, django, go, golang, postgresql, redis, docker, kubernetes, aws, rest, api, microservices, sql]
+  # Words that lower the rank (stacks you don't have).
+  missing_keywords: [java, scala, kotlin, "c#", "c++", rust]
